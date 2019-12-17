@@ -105,22 +105,6 @@ function dabbler(states) {
         .text(d => (d.abbr));
 
     // initialize tooltip
-    // var toolTip = d3.select('body').append('div')
-    //     .attr('class', 'd3-tip');
-
-    // circlesGroup.on('mouseover', function (d) {
-    //     toolTip.style('display', 'block');
-    //     toolTip.html(`<strong>${d.state}</strong><br>Poverty: ${d.poverty}%<br>Healthcare: ${d.healthcare}%`)
-    //         .style('left', d3.event.pageX + 'px')
-    //         .style('top', d3.event.pageY + 'px');
-    // })
-
-    //     .on('mouseout', function () {
-    //         toolTip.style('display', 'none');
-    //     });
-
-    
-
     var toolTip = d3.tip()
       .attr('class','d3-tip')
       .offset([80, -60])
