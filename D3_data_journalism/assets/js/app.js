@@ -106,7 +106,7 @@ function dabbler(states) {
 
     // initialize tooltip
     // var toolTip = d3.select('body').append('div')
-    //     .attr('class', 'tooltip');
+    //     .attr('class', 'd3-tip');
 
     // circlesGroup.on('mouseover', function (d) {
     //     toolTip.style('display', 'block');
@@ -119,22 +119,24 @@ function dabbler(states) {
     //         toolTip.style('display', 'none');
     //     });
 
+    
+
     var toolTip = d3.tip()
-      .attr('class','tooltip')
+      .attr('class','d3-tip')
       .offset([80, -60])
       .html(function(d) {
-        return (`<strong>${d.state}</strong><br>Poverty: ${d.poverty}%<br>Healthcare: ${d.healthcare}%`)});
+        return (`${d.abbr}<br>Poverty: ${d.poverty}%<br>Healthcare: ${d.healthcare}%`)});
 
     // create the tooltip in chartGroup
     chartGroup.call(toolTip);
 
     // create 'mouseover' event listner to display tooltip
-    circlesGroup.on('mouseover', function(d) {
-      toolTip.show(d, this);
+    circlesGroup.on('mouseover', function(data) {
+      toolTip.show(data, this);
     })
     // create 'mouseout' event listner to hide tooltip
-      .on('mouseout', function(d) {
-        toolTip.hide(d);
-      })
+      .on('mouseout', function(data) {
+        toolTip.hide(data);
+      });
 };
 
